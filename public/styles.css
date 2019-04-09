@@ -1,0 +1,10 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-booking-container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
