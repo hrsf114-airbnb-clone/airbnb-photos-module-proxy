@@ -8,13 +8,11 @@ const axios = require('axios');
 app.use(morgan('dev'));
 app.use('/rooms/:id', express.static('public'));
 
-app.listen(port, () => {
-  console.log(`server running at: http://localhost:${port}`);
-});
+app.listen(port);
 
 app.get('/api/listing/:id', function(req, res) {
   const { id } = req.params;
-  const url = `http://localhost:3000/api/listing/${id}`;
+  const url = `http://ec2-34-215-220-186.us-west-2.compute.amazonaws.com/api/listing/${id}`;
   axios.get(url)
     .then(response => res.send(response.data))
     .catch(err => {
@@ -25,7 +23,7 @@ app.get('/api/listing/:id', function(req, res) {
 
 app.get('/api/photos/:id', function(req, res) {
   const { id } = req.params;
-  const url = `http://localhost:3001/api/photos/${id}`;
+  const url = `http://ec2-54-215-239-201.us-west-1.compute.amazonaws.com/api/photos/${id}`;
   axios.get(url)
     .then(response => res.send(response.data))
     .catch(err => {
@@ -36,7 +34,7 @@ app.get('/api/photos/:id', function(req, res) {
 
 app.get('/api/bookings/:id', function(req, res) {
   const { id } = req.params;
-  const url = `http://localhost:9000/api/bookings/${id}`;
+  const url = `http://ec2-3-81-67-143.compute-1.amazonaws.com/api/bookings/${id}`;
   axios.get(url)
     .then(response => res.send(response.data))
     .catch(err => {
